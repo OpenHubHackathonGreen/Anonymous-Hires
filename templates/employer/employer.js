@@ -19,7 +19,7 @@ let listings = {
                         "applicants": []
                     }
                 };
-//The name of the currently selected listing
+//The id of the currently selected listing
 let currentListing = null;
 //Weather the center of the screen shows  job applicants or editing for a listing
 //0: applicants

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <title>John Doe Listings</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Style Imports-->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Inline Style-->
+    <style>
+        body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+        .w3-row-padding img {margin-bottom: 12px}
+        /* Set the width of the sidebar to 120px */
+        .w3-sidebar {width: 120px;background: #222;}
+        /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+        #main {margin-left: 120px}
+        /* Remove margins from "page content" on small screens */
+        @media only screen and (max-width: 600px) {#main {margin-left: 0}}
+    </style>
+    <body class="w3-black">
+        <!-- Listings Sidebar Bar-->
+        <nav class="w3-sidebar w3-bar-block w3-small w3-center">
+            <!--Sidebar title-->
+            <h2>Listings</h2>
+            <!--List to hold tiles for Job listings created by the employer-->
+            <ul id="listingsList" class="w3-ul">
+            </ul>
+        </nav>
+        <!--Main content (title, editing listings)-->
+        <div class="w3-padding-large" id="main">
+            <!--Header (Company title)-->
+            <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+                <h1 class="w3-jumbo">John Doe</h1>
+                <p>Dashboard</p>
+            </header>
+
+            <!--Section for editing job listings, primarily adding skills, hidden initially, shown when a listing is selected-->
+            <div class="w3-content w3-justify w3-padding-64 w3-green" id="listingInfo" style="visibility: hidden;">
+                <!--Title of listing, filled in dynamically when listings are selected-->
+                <h2 id="listingTitle" style="text-align:center;"></h2>
+                <!--Description of listing, filled in dynamically when listings are selected-->
+                <h3 id="listingDescription"style="width: 80%;"></h3>
+                <p>Skills Required:</p>
+                <!--List to store tiles for skills-->
+                <ul id="itemList" class="w3-ul">
+                </ul>
+                <button onclick="">Apply</button>
+            </div>
+            
+            <!-- Footer -->
+            <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+            </footer>
+        </div>
+
+    </body>
+    <!--Link in JS-->
+    <script src="employee.js"></script> 
+</html>
