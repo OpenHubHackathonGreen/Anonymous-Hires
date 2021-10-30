@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+<link rel="stylesheet" href="EmployeeListing.css">
+<style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
+    .w3-bar-block .w3-bar-item {padding:20px}
+</style>
+<body>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+    <!-- Avatar image in top left corner -->
+    <div  class="w3-bar-item w3-button w3-padding-large w3-white" style="max-width: 1200px;">
+      Job Listings
+    </div>
+    {% for job in jobs %}  
+    <div>
+    <button id="jobIdButton{{job.id}}"  class="w3-bar-item w3-button w3-padding-large w3-hover-black joblisting">
+      <img src="/EmployerIcons/mcDon.png" style="max-height: 75%; max-width: 50%;">
+      <i class="fa fa-user w3-xxlarge"></i>
+      <p>{{job.company}} </p>
+      <p>{{job.title}} </p>
+      </button>
+    </div> 
+    {% endfor %} 
+
+  </nav>
+
+<!-- Title -->
+<div class="w3-top">
+  <div class="w3-white w3-xlarge" style="max-width:1200px;margin:auto">
+    <div class="w3-center w3-padding-16">Find a Job!</div>
+  </div>
+</div>
+  
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+
+  <!-- Displays Job Description -->
+  <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+    {% for job in jobs %}
+    <div class="w3-quarter" id="{{job.id}}">
+      <img src="/EmployerIcons/mcDon.png" alt="" style="max-width:80%; max-height: 40%; display: block; display: center;">
+      <p>{{job.company}}</p>
+      <p>{{job.title}}</p>
+      <p>{{job.desc}}: Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum. lorem ipsum text praesent tincidunt ipsum lipsum. lorem ipsum text praesent tincidunt ipsum lipsum.  lorem ipsum text praesent tincidunt ipsum lipsum.</p>
+      <button>Apply</button>
+    </div>
+    {% endfor %}
+  </div>
+
+
+
+
+  
+ </div>
+
+<script>
+// Script to open and close sidebar
+let jobs = {
+  "JobId": {
+    "Skills": [0,1,2,3]
+  },
+  "JobId0": {
+    "Skills":[0, 2],
+    "JobDesc":["1"]
+  }
+};
+// Hides and Unhides job description needs to be incremented by 1 
+var jobs = document.querySelectorAll(".joblisting");
+jobs.forEach((job, i) => {
+        
+})
+
+for(let job in jobs){
+  var jobId = job;
+  document.getElementById("jobIdButton" + jobId).onclick = displayJobDesc(jobId);
+}
+   
+function displayJobDesc(id) {
+  var x = document.getElementById("jobDesc"+id);
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+
+</script>
+
+</body>
+</html>
