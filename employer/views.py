@@ -6,4 +6,4 @@ def employer(request):
 	context = {
 		'msg': msg
 	}
-	return render(request, "employer/employerdashboard.html", context)
+	return render(request, "employer/employer.html", context)
