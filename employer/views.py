@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from .models import *
+from .forms import JobListingForm
 
 # Create your views here.
 def employer(request):
@@ -7,3 +9,9 @@ def employer(request):
 		'msg': msg
 	}
 	return render(request, "employer/employer.html", context)
+
+def job_listing(request):
+	context = {
+		'joblistform': JobListingForm(),
+	}
+	return render(request, "employer/newlisting.html", context)
