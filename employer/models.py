@@ -13,7 +13,7 @@ class JobCommuteType(models.Model):
 class JobListing(models.Model):
 	title = models.CharField(max_length=50)
 	date = models.DateField()
-	location = models.ForeignKey(Location)
+	location = models.ForeignKey(Location, on_delete=models.CASCADE)
 	description = models.TextField()
 	requirements = models.ManyToManyField(JobPosition)
-	commute = models.ForeignKey(JobCommuteType)
+	commute = models.ForeignKey(JobCommuteType, on_delete=models.CASCADE)

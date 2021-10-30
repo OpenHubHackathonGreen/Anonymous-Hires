@@ -14,7 +14,7 @@ class State(models.Model):
 class Location(models.Model):
 	street = models.CharField(max_length=50)
 	city = models.CharField(max_length=50)
-	state = models.ForeignKey(State)
+	state = models.ForeignKey(State, on_delete=models.CASCADE)
 	zip_code = models.CharField(max_length=5)
 
 class EntityType(models.Model):
@@ -27,8 +27,8 @@ class Entity(models.Model):
 	company_name = models.CharField(max_length=50, blank=True)
 	first_name = models.CharField(max_length=50, blank=True)
 	last_name = models.CharField(max_length=50, blank=True)
-	address = models.ForeignKey(Location)
-	entity_type = models.ForeignKey(EntityType)
+	address = models.ForeignKey(Location, on_delete=models.CASCADE)
+	entity_type = models.ForeignKey(EntityType, on_delete=models.CASCADE)
 
 	def user_id(self):
 		digits = string.digits
