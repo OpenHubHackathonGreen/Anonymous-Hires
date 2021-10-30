@@ -20,7 +20,7 @@ class Location(models.Model):
 class EntityType(models.Model):
 	e_type = models.CharField(max_length=50)
 
-	def__unicode__(self):
+	def __unicode__(self):
 		return self.e_type
 
 class Entity(models.Model):
