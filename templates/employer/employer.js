@@ -4,19 +4,19 @@ const skills = {"0":{ "name": "Python"}, "1":{ "name": "Web"}, "2":{ "name": "Ja
 let listings = {
                     "0": {"name": "DevOps", "description": "Develop software in an agile enviornment", 
                         "skills": ["0", "2"],
-                        "applicants": [{"id": "0", "skills": ["1"]}]
+                        "applicants": [{"id": "0", "skills": ["1"]}, {"id": "1", "skills": ["3", "5"]}]
                     }, 
                     "1": {"name": "Evil Logistics", "description": "Concoct only the most nefarious of supply chains", 
                         "skills": ["1"],
-                        "applicants": []
+                        "applicants": [{"id": "0", "skills": ["1"]}, {"id": "1", "skills": ["2", "4"]}]
                     }, 
                     "2": {"name": "Devious Chef", "description": "Cook who knows has mastered all 27 arts of poison and cookies", 
                         "skills": ["3"],
-                        "applicants": []
+                        "applicants": [{"id": "0", "skills": ["1"]}, {"id": "1", "skills": ["3", "1"]}]
                     }, 
                     "3": {"name": "Software Engineer", "description": "Work in a development enviornment", 
                         "skills": ["1", "2"],
-                        "applicants": []
+                        "applicants": [{"id": "0", "skills": ["1"]}]
                     }
                 };
 //The id of the currently selected listing
@@ -68,8 +68,12 @@ function loadApplicants(applicantList){
     //Empty list
     document.getElementById("itemList").innerHTML = "";
     //Add tile for every applicant in the list
-    for(let i=0; i<applicantList.length; i++)
-        addTile(applicantList[i].id, ""+applicantList[i].skills, "itemList", function(){}, true);
+    for(let i=0; i<applicantList.length; i++){
+        let skillString = "";
+        for(let j=0; j<applicantList[i].skills.length; j++)
+            skillString += skills[applicantList[i].skills[j]].name+", ";
+        addTile(applicantList[i].id, "Applocant Ids: "+applicantList[i].id+", Applicant Skills: "+skillString, "itemList", function(){}, true);
+    }
 }
 //Loads all skills from the given list onto the page as tiles
 function loadSkills(skillList){
