@@ -17,6 +17,9 @@ class Location(models.Model):
 	state = models.ForeignKey(State, on_delete=models.CASCADE)
 	zip_code = models.CharField(max_length=5)
 
+	def __unicode__(self):
+		return self.street
+
 class EntityType(models.Model):
 	e_type = models.CharField(max_length=50)
 

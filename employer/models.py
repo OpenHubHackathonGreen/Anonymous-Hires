@@ -7,8 +7,14 @@ class JobPosition(models.Model):
 	title = models.CharField(max_length=50)
 	description = models.TextField()
 
+	def __unicode__(self):
+		return self.title
+
 class JobCommuteType(models.Model):
 	commute = models.CharField(max_length=50)
+
+	def __unicode__(self):
+		return self.commute
 
 class JobListing(models.Model):
 	title = models.CharField(max_length=50)
@@ -17,3 +23,6 @@ class JobListing(models.Model):
 	description = models.TextField()
 	requirements = models.ManyToManyField(JobPosition)
 	commute = models.ForeignKey(JobCommuteType, on_delete=models.CASCADE)
+
+	def __unicode__(self):
+		return self.title

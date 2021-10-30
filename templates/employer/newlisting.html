@@ -28,7 +28,6 @@
             </ul>
             <!--Button to add empty job listinng (title and nothing else)
             <button class="w3-button" style="float: left;" onclick="addListing()">+</button> -->
-            <a href="/employer/addnewlisting">+</a>
             <!--Input for name of any newly created listings-->
             <input id="newListingName" type="text" style="width: 80%;">
         </nav>
@@ -41,31 +40,13 @@
                 <h1 class="w3-jumbo">Mega Corp</h1>
                 <p>Dashboard</p>
             </header>
-
-            <!--Section for editing job listings, primarily adding skills, hidden initially, shown when a listing is selected-->
-            <div class="w3-content w3-justify w3-padding-64 w3-green" id="listingInfo" style="visibility: hidden;">
-                <!--Switches between applicants view and editing view-->
-                <button id="contextSwitch" class="w3-button" onclick="contextSwitch()">Edit Listing</button>
-                <!--Title of listing, filled in dynamically when listings are selected-->
-                <h2 id="listingTitle" style="text-align:center;"></h2>
-                <!--Description of listing, filled in dynamically when listings are selected-->
-                <input id="listingDescription" type="text" style="width: 80%;">
-                <!--List to store tiles for skills-->
-                <ul id="itemList" class="w3-ul">
-                </ul>
-                <!--Contains new skill and and search-->
-                <div id="searchDiv" class="w3-half">
-                    <!--Adds a skill with the name in the input box to the listing-->
-                    <button class="w3-button" onclick="addSkill()">+</button>
-                    <!--Input box for adding a new skill from the list of pre-aproved skills-->
-                    <input id="newSkillName" type="text" style="width: 80%;">
-                    <!--Shows skills that can match the current search-->
-                    <div>
-                        <ul id="searchList" class="w3-ul"> 
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <form method="post" action="">
+                {% csrf_token %}
+                <table>
+                {{joblistform}}
+                </table>
+                <input type="submit" value="Submit Form"/>
+            </form>
             
             <!-- Footer -->
             <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
