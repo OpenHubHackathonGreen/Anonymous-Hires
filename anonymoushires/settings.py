@@ -31,6 +31,9 @@ ALLOWED_HOSTS = ["3.23.112.179"]
 # Application definition
 
 INSTALLED_APPS = [
+    'employee.apps.EmployeeConfig',
+    'employer.apps.EmployerConfig',
+    'main.apps.MainConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
