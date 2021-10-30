@@ -43,15 +43,17 @@
 
             <!--Section for editing job listings, primarily adding skills, hidden initially, shown when a listing is selected-->
             <div class="w3-content w3-justify w3-padding-64 w3-green" id="listingInfo" style="visibility: hidden;">
+                <!--Switches between applicants view and editing view-->
+                <button id="contextSwitch" class="w3-button" onclick="contextSwitch()">Edit Listing</button>
                 <!--Title of listing, filled in dynamically when listings are selected-->
                 <h2 id="listingTitle" style="text-align:center;"></h2>
                 <!--Description of listing, filled in dynamically when listings are selected-->
                 <input id="listingDescription" type="text" style="width: 80%;">
                 <!--List to store tiles for skills-->
-                <ul id="skillsList" class="w3-ul">
+                <ul id="itemList" class="w3-ul">
                 </ul>
                 <!--Contains new skill and and search-->
-                <div class="w3-half">
+                <div id="searchDiv" class="w3-half">
                     <!--Adds a skill with the name in the input box to the listing-->
                     <button class="w3-button" onclick="addSkill()">+</button>
                     <!--Input box for adding a new skill from the list of pre-aproved skills-->
