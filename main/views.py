@@ -4,4 +4,4 @@ from django.shortcuts import render
 def index(request):
 	msg = "Something magnificent is being built here!"
 	context = {'msg': msg}
-	return render(request, 'index.html', context)
+	return render(request, 'main/index.html', context)
