@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Entity
+from main.models import Entity
 # Register your models here.
 class EntityAdmin(admin.ModelAdmin):
 	fields = ['user_id','company_name', 'first_name', 'last_name', 'address', 'entity_type']
