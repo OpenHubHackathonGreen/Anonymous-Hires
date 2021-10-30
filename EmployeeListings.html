@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+<link rel="stylesheet" href="EmployeeListing.css">
+<style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
+    .w3-bar-block .w3-bar-item {padding:20px}
+</style>
+<body>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+    <!-- Avatar image in top left corner -->
+    <div  class="w3-bar-item w3-button w3-padding-large w3-white" style="max-width: 1200px;">
+      Job Listings
+    </div>
+    <button onclick="displayJobDesc()" class="w3-bar-item w3-button w3-padding-large w3-hover-black" id="jobListing">
+    <img src="/EmployerIcons/mcDon.png" style="max-height: 75%; max-width: 50%;">
+    <i class="fa fa-user w3-xxlarge"></i>
+
+    <p>Company name: </p>
+    <p>Job Title: </p>
+    </button>
+
+  </nav>
+
+<!-- Title -->
+<div class="w3-top">
+  <div class="w3-white w3-xlarge" style="max-width:1200px;margin:auto">
+    <div class="w3-center w3-padding-16">Find a Job!</div>
+  </div>
+</div>
+  
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+
+  <!-- Displays Job Description -->
+  <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+    <div class="w3-quarter" id="jobDesc">
+      <img src="/EmployerIcons/mcDon.png" alt="" style="max-width:80%; max-height: 40%; display: block; display: center;">
+      <p>Company name: McDonalds</p>
+      <p>Job Title: Line Cook</p>
+      <p>Job Description: Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum. lorem ipsum text praesent tincidunt ipsum lipsum. lorem ipsum text praesent tincidunt ipsum lipsum.  lorem ipsum text praesent tincidunt ipsum lipsum.</p>
+      <p>Benefits:  lorem ipsum text praesent tincidunt ipsum lipsum. lorem ipsum text praesent tincidunt ipsum lipsum.</p>
+      
+      <button>Apply</button>
+    </div>
+  </div>
+
+
+
+
+  
+ </div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+}
+ 
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+// Hides and Unhides job description needs to be incremented by 1 
+var jobs = document.querySelectorAll("#jobListing");
+jobs.forEach(function(el){
+    el.addEventListener('click', displayJobDesc());
+})
+function displayJobDesc(event) {
+  var x = document.getElementById("jobDesc");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+function addJobs(){
+    console.log(1);
+    var jobDesc = document.getElementsByClassName("w3-row-padding w3-padding-16 w3-center");
+
+    Array.prototype.jobDesc.forEach(element => {
+        let i = 0;
+        i++;
+        console.log(element);
+        var update = 'jobDesc';
+        element.setAttribute('id',update)
+    });
+}
+window.onload = addJobs;
+</script>
+
+</body>
+</html>
