@@ -8,17 +8,17 @@ let listings = {
                         "skills": ["0", "2"], "hasApplied": false
                     }, 
                     "1": {
-                        "companyName": "GeniusCrayons",
-                        "name": "Evil Logistics", "description": "Concoct only the most nefarious of supply chains", 
+                        "companyName": "Doofenshmirtz Evil Inc",
+                        "name": "WMD Manager", "description": "Oversee development of WMDs with goal of conquering Tri-State Area", 
                         "skills": ["1"], "hasApplied": false
                     }, 
                     "2": {
-                        "companyName": "SpilledMilk",
+                        "companyName": "SpilledMilk LLC",
                         "name": "Devious Chef", "description": "Cook who knows has mastered all 27 arts of poison and cookies", 
                         "skills": ["3"], "hasApplied": false
                     }, 
                     "3": {
-                        "companyName": "PandaCorp",
+                        "companyName": "PandaCorp Inc",
                         "name": "Software Engineer", "description": "Work in a development enviornment", 
                         "skills": ["1", "2"], "hasApplied": false
                     }
@@ -38,7 +38,7 @@ function loadListing(listingId){
     //Set title and description
     document.getElementById("listingCompanyName").innerHTML = listings[listingId].companyName;
     document.getElementById("listingTitle").innerHTML = listings[listingId].name;
-    document.getElementById("listingDescription").innerHTML = listings[listingId].description;
+    document.getElementById("listingDescription").innerHTML = listings[listingId].description+", applied?: "+listings[listingId].hasApplied;
     //Add skills tiles for listing
     loadSkills(listings[listingId].skills);
 }
