@@ -18,13 +18,16 @@
     <div  class="w3-bar-item w3-button w3-padding-large w3-white" style="max-width: 1200px;">
       Job Listings
     </div>
-    <button onclick="displayJobDesc()" class="w3-bar-item w3-button w3-padding-large w3-hover-black" id="jobListing">
-    <img src="/EmployerIcons/mcDon.png" style="max-height: 75%; max-width: 50%;">
-    <i class="fa fa-user w3-xxlarge"></i>
-
-    <p>Company name: </p>
-    <p>Job Title: </p>
-    </button>
+    {% for job in jobs %}  
+    <div>
+    <button id="jobIdButton{{job.id}}"  class="w3-bar-item w3-button w3-padding-large w3-hover-black joblisting">
+      <img src="/EmployerIcons/mcDon.png" style="max-height: 75%; max-width: 50%;">
+      <i class="fa fa-user w3-xxlarge"></i>
+      <p>{{job.company}} </p>
+      <p>{{job.title}} </p>
+      </button>
+    </div> 
+    {% endfor %} 
 
   </nav>
 
@@ -40,15 +43,15 @@
 
   <!-- Displays Job Description -->
   <div class="w3-row-padding w3-padding-16 w3-center" id="food">
-    <div class="w3-quarter" id="jobDesc">
+    {% for job in jobs %}
+    <div class="w3-quarter" id="{{job.id}}">
       <img src="/EmployerIcons/mcDon.png" alt="" style="max-width:80%; max-height: 40%; display: block; display: center;">
-      <p>Company name: McDonalds</p>
-      <p>Job Title: Line Cook</p>
-      <p>Job Description: Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum. lorem ipsum text praesent tincidunt ipsum lipsum. lorem ipsum text praesent tincidunt ipsum lipsum.  lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-      <p>Benefits:  lorem ipsum text praesent tincidunt ipsum lipsum. lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-      
+      <p>{{job.company}}</p>
+      <p>{{job.title}}</p>
+      <p>{{job.desc}}: Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum. lorem ipsum text praesent tincidunt ipsum lipsum. lorem ipsum text praesent tincidunt ipsum lipsum.  lorem ipsum text praesent tincidunt ipsum lipsum.</p>
       <button>Apply</button>
     </div>
+    {% endfor %}
   </div>
 
 
@@ -59,20 +62,28 @@
 
 <script>
 // Script to open and close sidebar
-function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-}
- 
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-}
+let jobs = {
+  "JobId": {
+    "Skills": [0,1,2,3]
+  },
+  "JobId0": {
+    "Skills":[0, 2],
+    "JobDesc":["1"]
+  }
+};
 // Hides and Unhides job description needs to be incremented by 1 
-var jobs = document.querySelectorAll("#jobListing");
-jobs.forEach(function(el){
-    el.addEventListener('click', displayJobDesc());
+var jobs = document.querySelectorAll(".joblisting");
+jobs.forEach((job, i) => {
+        
 })
-function displayJobDesc(event) {
-  var x = document.getElementById("jobDesc");
+
+for(let job in jobs){
+  var jobId = job;
+  document.getElementById("jobIdButton" + jobId).onclick = displayJobDesc(jobId);
+}
+   
+function displayJobDesc(id) {
+  var x = document.getElementById("jobDesc"+id);
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {
@@ -80,19 +91,7 @@ function displayJobDesc(event) {
   }
 }
 
-function addJobs(){
-    console.log(1);
-    var jobDesc = document.getElementsByClassName("w3-row-padding w3-padding-16 w3-center");
 
-    Array.prototype.jobDesc.forEach(element => {
-        let i = 0;
-        i++;
-        console.log(element);
-        var update = 'jobDesc';
-        element.setAttribute('id',update)
-    });
-}
-window.onload = addJobs;
 </script>
 
 </body>
